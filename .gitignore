@@ -1,0 +1,7 @@
+build
+*.log
+*.o
+*.swp
+*.node
+.lock*
+deps/skia/*

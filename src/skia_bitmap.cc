@@ -14,6 +14,7 @@ using namespace node;
 Persistent<Function> NodeSkiaBitmap::constructor;
 
 NodeSkiaBitmap::NodeSkiaBitmap() {
+  bitmap_ = new SkBitmap();
 }
 
 NodeSkiaBitmap::~NodeSkiaBitmap() {
@@ -37,7 +38,7 @@ void NodeSkiaBitmap::Initialize(Handle<Object> target) {
 Handle<Value> NodeSkiaBitmap::New(const v8::Arguments& args) {
   HandleScope scope;
 
-  NodeSkiaBitmap* bitmap = new NodeSkiaBitmap;
+  NodeSkiaBitmap* bitmap = new NodeSkiaBitmap();
   bitmap->Wrap(args.This());
 
   return args.This();
@@ -58,7 +59,20 @@ Handle<Value> NodeSkiaBitmap::SetConfig(const Arguments& args) {
 
   NodeSkiaBitmap* bitmap = ObjectWrap::Unwrap<NodeSkiaBitmap>(args.This());
 
-  bitmap->SetConfig(SkBitmap::kARGB_8888_Config, 800, 600, 0);
+  SkBitmap::Config config = SkBitmap::kARGB_8888_Config;
+  int width = 0;
+  int height = 0;
+
+  if (args[0]->IsNumber()) {
+    config = static_cast<SkBitmap::Config>(args[0]->Uint32Value());
+  }
+
+  if (args[1]->IsNumber())
+    width = args[1]->Uint32Value();
+  if (args[2]->IsNumber())
+    height = args[2]->Uint32Value();
+
+  bitmap->SetConfig(config, width, height);
 
   return Undefined();
 }

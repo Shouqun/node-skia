@@ -13,6 +13,7 @@ using namespace node;
 Persistent<Function> NodeSkiaPaint::constructor;
 
 NodeSkiaPaint::NodeSkiaPaint() {
+  paint_ = new SkPaint();
 }
 
 NodeSkiaPaint::~NodeSkiaPaint() {
@@ -30,7 +31,7 @@ void NodeSkiaPaint::Initialize(Handle<Object> target) {
 Handle<Value> NodeSkiaPaint::New(const v8::Arguments &args) {
   HandleScope scope;
 
-  NodeSkiaPaint* paint = new NodeSkiaPaint;
+  NodeSkiaPaint* paint = new NodeSkiaPaint();
   paint->Wrap(args.This());
 
   return args.This();

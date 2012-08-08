@@ -12,6 +12,7 @@ using namespace node;
 Persistent<Function> NodeSkiaCanvas::constructor;
 
 NodeSkiaCanvas::NodeSkiaCanvas() {
+  canvas_ = new SkCanvas();
 }
 
 NodeSkiaCanvas::~NodeSkiaCanvas() {
@@ -29,7 +30,7 @@ void NodeSkiaCanvas::Initialize(Handle<Object> target) {
 Handle<Value> NodeSkiaCanvas::New(const v8::Arguments &args) {
   HandleScope scope;
 
-  NodeSkiaCanvas* canvas = new NodeSkiaCanvas;
+  NodeSkiaCanvas* canvas = new NodeSkiaCanvas();
   canvas->Wrap(args.This());
 
   return args.This();

@@ -5,3 +5,5 @@ build
 *.node
 .lock*
 deps/skia/*
+debug/*
+.DS_Store

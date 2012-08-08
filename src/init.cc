@@ -1,18 +1,18 @@
 #include <node.h>
 #include <v8.h>
 
+#include "skia_bitmap.h"
+#include "skia_canvas.h"
+#include "skia_paint.h"
+
 using namespace v8;
 
-Handle<Value> Method(const Arguments& args) {
-  HandleScope scope;
-  return scope.Close(String::New("world"));
-}
-
 void init(Handle<Object> target) {
-  target->Set(String::NewSymbol("hello"),
-      FunctionTemplate::New(Method)->GetFunction());
-}
+  HandleScope scope;
 
+  NodeSkiaBitmap::Initialize(target);
+  NodeSkiaCanvas::Initialize(target);
+  NodeSkiaPaint::Initialize(target);
+}
 
 NODE_MODULE(skialib, init)
-

@@ -1,6 +1,7 @@
 {
   'xcode_settings': {
     'SDKROOT': 'macosx10.6',
+    'GCC_OPTIMIZATION_LEVEL': '0'
   },
 
   'targets' : [
@@ -22,6 +23,9 @@
         'src/init.cc',
         'src/skia.cc',
         'src/skia_canvas.cc',
+        'src/skia_paint.cc',
+        'src/skia_bitmap.cc',
+        'src/skia_paint.cc',
       ],
       'dependencies' : [
         'gyp/animator.gyp:animator',

@@ -27,6 +27,7 @@ public:
     bitmap_->setConfig(config, width, height, rowBytes);
   }
 
+  SkBitmap* GetSkBitmap() { return bitmap_; }
 private:
   SkBitmap* bitmap_;
 };

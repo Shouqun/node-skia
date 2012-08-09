@@ -7,11 +7,12 @@ canvas = new skia.SkCanvas();
 bitmap.setConfig(1, 800, 600);
 bitmap.allocPixels();
 
-//paint.setAntiAlias(true);
-//paint.setTextSize(30);
+paint.setAntiAlias(true);
+paint.setTextSize(30);
 
-//canvas.setDevice(bitmap);
-//canvas.drawColor(1);  //white
+//canvas.setBitmapDevice(bitmap);
+canvas.drawColor(1);  //white
 
-//canvas.drawText("Hello World!", 0, 0, paint);
+var string = "Hello World!"
+canvas.drawText(string, string.length, 300, 300, paint);
 

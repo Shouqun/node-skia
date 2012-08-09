@@ -18,6 +18,7 @@ NodeSkiaBitmap::NodeSkiaBitmap() {
 }
 
 NodeSkiaBitmap::~NodeSkiaBitmap() {
+  delete bitmap_;
 }
 
 void NodeSkiaBitmap::Initialize(Handle<Object> target) {

@@ -1,0 +1,14 @@
+{
+  "name": "node-skia",
+  "version": "0.0.1",
+  "description": "Node.js graphics library using skia backend.",
+  "author": "Shouqun Liu <liushouqun@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shouqun/node-skia.git"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  }
+}
